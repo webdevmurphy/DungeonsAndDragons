@@ -1,0 +1,406 @@
+<nb-card>
+  <nb-card-body>
+    <div *ngIf="user">
+<div class="format"><!--Changed to angular from original, when You click the submit button it works-->
+  <form #form="ngForm" (ngSubmit)="onSubmit(form.value); form.reset();" class="charsheet">
+      <header>
+        <section class="charname">
+           
+           <!--Original HTML-->
+          <!--label for="charname">Character Name</label><input name="charname" placeholder="Thoradin Fireforge" / -->
+          <!-- Angular Form Version-->
+          <label for="charname">Character Name
+            <input nbInput required placeholder="IronGut the bloated" minlength='3' maxlength="30" 
+              ngModel 
+              [(ngModel)]="model.charname"
+              name="charname"  
+              id=charname 
+              type="text" 
+              class="form-control">
+            </label>
+  
+        </section>
+        <section class="misc">
+          <ul>
+            <li>
+              <label for="classlevel">Class & Level</label><input 
+              nbInput
+              required
+              minlength='3'  
+              maxlength="30" 
+              name="classlevel" 
+              placeholder="Paladin 2"
+              ngModel 
+              [(ngModel)]="model.classlevel"
+              name="classlevel"  
+              id= classlevel 
+              type="text" 
+              >
+            </li>
+              <input type="hidden"  class="form-control" ngModel [(ngModel)]="user.uid" name="uid"/>
+            <li>  
+              <label for="background">Background</label><input nbInput placeholder="Acolyte" ngModel [(ngModel)]="model.background" name="background"/>
+            </li>
+            <li>
+              <label for="playername">Player Name</label><input nbInput placeholder="Player McPlayerface" ngModel [(ngModel)]="model.playername" name="playername">
+            </li>
+            <li>
+              <label for="race">Race</label><input nbInput placeholder="Half-elf" ngModel [(ngModel)]="model.race" name="race"/>
+            </li>
+            <li>
+              <label for="alignment">Alignment</label><input nbInput placeholder="Lawful Good" ngModel [(ngModel)]="model.alignment" name="alignment" />
+            </li>
+            <li>
+              <label for="experiencepoints">Experience Points</label><input nbInput placeholder="3240" ngModel [(ngModel)]="model.experiencepoints" name="experiencepoints"/>
+            </li>
+          </ul>
+        </section>
+      </header> 
+      <main> 
+        <section>
+          <section class="attributes">
+            <div class="scores">
+              <ul>
+                <li>
+                  <nb-card class="score">
+                    <label for="Strengthscore">Strength</label><input nbInput fullWidth fieldSize="small" placeholder="10" class="stat" ngModel [(ngModel)]="model.Strengthscore" name="Strengthscore"/>
+                  </nb-card>
+                  <div class="modifier">
+                    <input nbInput placeholder="+0" class="statmod" ngModel [(ngModel)]="model.Strengthmod" name="Strengthmod"/>
+                  </div>
+                </li>
+                <li>
+                  <nb-card class="score">
+                    <label for="Dexterityscore">Dexterity</label><input nbInput placeholder="10" class="stat" ngModel [(ngModel)]="model.DexterityScore" name="Dexterityscore"/>
+                  </nb-card>
+                  <div class="modifier">
+                    <input nbInput placeholder="+0" class=statmod [(ngModel)]="model.Dexteritymod" name="Dexteritymod"/> 
+                  </div>
+                </li>
+                <li>
+                  <nb-card class="score">
+                    <label for="Constitutionscore">Constitution</label><input nbInput placeholder="10" class="stat" ngModel [(ngModel)]="model.Constitutionscore" name="Constitutionscore"/>
+                  </nb-card>
+                  <div class="modifier">
+                    <input nbInput placeholder="+0" class="statmod" ngModel [(ngModel)]="model.Constitutionmod" name="Constitutionmod"/>
+                  </div>
+                </li>
+                <li>
+                  <nb-card class="score">
+                    <label for="Wisdomscore">Wisdom</label><input nbInput  placeholder="10" class="stat" ngModel [(ngModel)]="model.Wisdomscore" name="Wisdomscore"/>
+                  </nb-card>
+                  <div class="modifier">
+                    <input nbInput placeholder="+0" ngModel [(ngModel)]="model.Wisdommod" name="Wisdommod" />
+                  </div>
+                </li>
+                <li>
+                  <nb-card class="score">
+                    <label for="Intelligencescore">Intelligence</label><input nbInput placeholder="10" class="stat"ngModel [(ngModel)]="model.Intelligencescore" name="Intelligencescore"/>
+                  </nb-card>
+                  <div class="modifier">
+                    <input nbInput placeholder="+0" class="statmod" ngModel [(ngModel)]="model.Intelligencemod" name="Intelligencemod"/>
+                  </div>
+                </li>
+                <li>
+                  <nb-card class="score">
+                    <label for="Charismascore">Charisma</label><input nbInput placeholder="10" class="stat" ngModel [(ngModel)]="model.Charismascore" name="Charismascore"/>
+                  </nb-card>
+                  <div class="modifier">
+                    <input nbInput placeholder="+0" class="statmod" ngModel [(ngModel)]="model.Charismamod" name="Charismamod"/>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="attr-applications">
+              <div class="inspiration box">
+                <div class="label-container">
+                  <label for="inspiration">Inspiration</label>
+                </div>
+                <nb-checkbox (checkedChange)="toggle($event)" [(ngModel)]="model.inspiration" status="primary" name="inspiration" type="checkbox"></nb-checkbox>
+              </div>
+              <div class="proficiencybonus box">
+                <div class="label-container">
+                  <label for="proficiencybonus">Proficiency Bonus</label>
+                </div>
+                <input nbInput placeholder="+2" ngModel [(ngModel)]="model.proficiencybonus" name="proficiencybonus" />
+              </div>
+              <div class="saves list-section box">
+                <ul>
+                  <li>
+
+                    <label for="Strength-save" >Strength</label><input placeholder ="22" nbInput fieldSize="small" type="text" ngModel [(ngModel)]="model.Strengthsave" name="Strength-save" /><nb-checkbox (checkedChange)="toggle1($event)"  [(ngModel)]="model.strengthsaveprof" name="Strength-save-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Dexterity-save">Dexterity</label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Dexteritysave" name="Dexterity-save" /><nb-checkbox (checkedChange)="toggle2($event)"  [(ngModel)]="model.dexteritysaveprof" name="Dexterity-save-prof" status="primary" type="checkbox" > </nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Constitution-save">Constitution</label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Constitutionsave" name="Constitution-save" /><nb-checkbox (checkedChange)="toggle3($event)"  [(ngModel)]="model.constitutionsaveprof" name="Constitution-save-prof" status="primary" type="checkbox" > </nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Wisdom-save">Wisdom</label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Wisdomsave" name="Wisdom-save" /><nb-checkbox (checkedChange)="toggle4($event)"  [(ngModel)]="model.wisdomsaveprof" name="Wisdom-save-prof" status="primary" type="checkbox" > </nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Intelligence-save">Intelligence</label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Intelligencesave" name="Intelligence-save"/><nb-checkbox (checkedChange)="toggle5($event)"  [(ngModel)]="model.intelligencesaveprof" name="Intelligence-save-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Charisma-save">Charisma</label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Charismasave" name="Charisma-save"/><nb-checkbox (checkedChange)="toggle6($event)"  [(ngModel)]="model.charismasaveprof" name="Charisma-save-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                </ul>
+                <div class="label">
+                  Saving Throws
+                </div>
+              </div>
+              <div class="skills list-section box">
+                <ul>
+                  <li>
+                    <label for="Acrobatics">Acrobatics <span class="skill">(Dex)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Acrobatics" name="Acrobatics"/><nb-checkbox (checkedChange)="toggle7($event)"  [(ngModel)]="model.acrobaticsprof" name="Acrobatics-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Animal Handling">Animal Handling <span class="skill">(Wis)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Animalhandling" name="Animal Handling" /><nb-checkbox (checkedChange)="toggle8($event)"  [(ngModel)]="model.animalhandlingprof" name="Animal Handling-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Arcana">Arcana <span class="skill">(Int)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Arcana" name="Arcana" /><nb-checkbox (checkedChange)="toggle9($event)"  [(ngModel)]="model.arcanaprof" name="Arcana-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Athletics">Athletics <span class="skill">(Str)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Athletics" name="Athletics" /><nb-checkbox (checkedChange)="toggle10($event)"  [(ngModel)]="model.athleticsprof" name="Athletics-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Deception">Deception <span class="skill">(Cha)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Deception" name="Deception" /><nb-checkbox (checkedChange)="toggle11($event)"  [(ngModel)]="model.deceptionprof" name="Deception-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="History">History <span class="skill">(Int)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.History" name="History" /><nb-checkbox (checkedChange)="toggle12($event)"  [(ngModel)]="model.historyprof" name="History-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Insight">Insight <span class="skill">(Wis)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Insight" name="Insight" /><nb-checkbox (checkedChange)="toggle13($event)"  [(ngModel)]="model.insightprof" name="Insight-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Intimidation">Intimidation <span class="skill">(Cha)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Intimidation" name="Intimidation" /><nb-checkbox (checkedChange)="toggle14($event)"  [(ngModel)]="model.intimidationprof" name="Intimidation-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Investigation">Investigation <span class="skill">(Int)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Investigation" name="Investigation" /><nb-checkbox (checkedChange)="toggle15($event)"  [(ngModel)]="model.investigationprof" name="Investigation-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Medicine">Medicine <span class="skill">(Wis)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Medicine" name="Medicine" /><nb-checkbox (checkedChange)="toggle16($event)"  [(ngModel)]="model.medicineprof" name="Medicine-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Nature">Nature <span class="skill">(Int)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Nature" name="Nature" /><nb-checkbox (checkedChange)="toggle17($event)"  [(ngModel)]="model.natureprof" name="Nature-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Perception">Perception <span class="skill">(Wis)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Perception" name="Perception"/><nb-checkbox (checkedChange)="toggle18($event)"  [(ngModel)]="model.perceptionprof" name="Perception-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Performance">Performance <span class="skill">(Cha)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Performance" name="Performance"/><nb-checkbox (checkedChange)="toggle19($event)"  [(ngModel)]="model.performanceprof" name="Performance-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Persuasion">Persuasion <span class="skill">(Cha)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Persuasion" name="Persuasion" /><nb-checkbox (checkedChange)="toggle20($event)"  [(ngModel)]="model.persuasionprof" name="Persuasion-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Religion">Religion <span class="skill">(Int)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Religion" name="Religion" /><nb-checkbox (checkedChange)="toggle21($event)"  [(ngModel)]="model.religionprof" name="Religion-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Sleight of Hand">Sleight of Hand <span class="skill">(Dex)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Sleightofhand" name="Sleight of Hand"/><nb-checkbox (checkedChange)="toggle22($event)"  [(ngModel)]="model.sleightofhandprof" name="Sleight of Hand-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Stealth">Stealth <span class="skill">(Dex)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Stealth" name="Stealth" /><nb-checkbox (checkedChange)="toggle23($event)"  [(ngModel)]="model.stealthprof" name="Stealth-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                  <li>
+                    <label for="Survival">Survival <span class="skill">(Wis)</span></label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Survival" name="Survival" /><nb-checkbox (checkedChange)="toggle24($event)"  [(ngModel)]="model.survivalprof" name="Survival-prof" status="primary" type="checkbox" ></nb-checkbox>
+                  </li>
+                </ul>
+                <div class="label">
+                  Skills
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="passive-perception box">
+            <div class="label-container">
+              <label for="passiveperception">Passive Wisdom (Perception)</label>
+            </div>
+            <input nbInput placeholder="10" ngModel [(ngModel)]="model.PassivePerception" name="passiveperception" />
+          </div>
+          <div class="otherprofs box textblock">
+            <label for="otherprofs">Other Proficiencies and Languages</label><textarea nbInput ngModel [(ngModel)]="model.otherprofs" name="otherprofs"></textarea>
+          </div>
+        </section>
+        <section>
+          <section class="combat">
+            <div class="armorclass">
+              <div>
+                <label for="ac">Armor Class</label><input nbInput placeholder="10" type="text" ngModel [(ngModel)]="model.ac" name="ac" />
+              </div>
+            </div>
+            <div class="initiative">
+              <div>
+                <label for="initiative">Initiative</label><input nbInput placeholder="+0" type="text" ngModel [(ngModel)]="model.Initiative" name="initiative" />
+              </div>
+            </div>
+            <div class="speed">
+              <div>
+                <label for="speed">Speed</label><input nbInput placeholder="30" type="text" ngModel [(ngModel)]="model.speed" name="speed" />
+              </div>
+            </div>
+            <div class="hp">
+              <div class="regular">
+                <div class="max">
+                  <label for="maxhp">Hit Point Maximum</label><input nbInput placeholder="10" type="text" ngModel [(ngModel)]="model.maxHP" name="maxhp" />
+                </div>
+                <div class="current">
+                  <label for="currenthp">Current Hit Points</label><input nbInput type="text" ngModel [(ngModel)]="model.currentHP" name="currenthp" />
+                </div>
+              </div>
+              <div class="temporary">
+                <label for="temphp">Temporary Hit Points</label><input nbInput type="text" ngModel [(ngModel)]="model.tempHP" name="temphp" />
+              </div>
+            </div>
+            <div class="hitdice">
+              <div>
+                <div class="total">
+                  <label onclick="totalhd_clicked()" for="totalhd">Total</label><input nbInput placeholder="2d10" type="text" ngModel [(ngModel)]="model.totalHD" name="totalhd"/>
+                </div>
+                <div class="remaining">
+                  <label for="remaininghd">Hit Dice</label><input nbInput type="text" ngModel [(ngModel)]="model.remainingHD" name="remaininghd" />
+                </div>
+              </div>
+            </div>
+            <nb-card class="deathsaves">
+              <div>
+                <div class="label">
+                  <label>Death Saves</label>
+                </div>
+                <div class="marks">
+                  <div class="deathsuccesses">
+                    <label>Successes</label>
+                    <div class="bubbles">
+                      <nb-checkbox (checkedChange)="toggle25($event)"  [(ngModel)]="model.deathsuccess1" name="deathsuccess1" status="primary" type="checkbox" ></nb-checkbox>
+                      <nb-checkbox (checkedChange)="toggle26($event)"  [(ngModel)]="model.deathsuccess2" name="deathsuccess2" status="primary" type="checkbox" ></nb-checkbox>
+                      <nb-checkbox (checkedChange)="toggle27($event)"  [(ngModel)]="model.deathsuccess3" name="deathsuccess3" status="primary" type="checkbox" ></nb-checkbox>
+                    </div>
+                  </div>
+                  <div class="deathfails">
+                    <label>Failures</label>
+                    <div class="bubbles">
+                      <nb-checkbox (checkedChange)="toggle28($event)"  [(ngModel)]="model.deathfail1" name="deathfail1" status="primary" type="checkbox" ></nb-checkbox>
+                      <nb-checkbox (checkedChange)="toggle29($event)"  [(ngModel)]="model.deathfail2" name="deathfail2" status="primary" type="checkbox" ></nb-checkbox>
+                      <nb-checkbox (checkedChange)="toggle30($event)"  [(ngModel)]="model.deathfail3" name="deathfail3" status="primary" type="checkbox" ></nb-checkbox>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nb-card>
+          </section>
+          <section class="attacksandspellcasting">
+            <nb-card>
+              <label>Attacks & Spellcasting</label>
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      Name
+                    </th>
+                    <th>
+                      Atk Bonus
+                    </th>
+                    <th>
+                      Damage/Type
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input nbInput type="text" ngModel [(ngModel)]="model.atkname1" name="atkname1" />
+                    </td>
+                    <td>
+                      <input nbInput type="text" ngModel [(ngModel)]="model.atkbonus1" name="atkbonus1" />
+                    </td>
+                    <td>
+                      <input nbInput type="text" ngModel [(ngModel)]="model.atkdamage1" name="atkdamage1" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input nbInput type="text" ngModel [(ngModel)]="model.atkname2" name="atkname2"/>
+                    </td>
+                    <td>
+                      <input nbInput type="text" ngModel [(ngModel)]="model.atkbonus2" name="atkbonus2" />
+                    </td>
+                    <td>
+                      <input nbInput type="text" ngModel [(ngModel)]="model.atkdamage2" name="atkdamage2" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input nbInput type="text" ngModel [(ngModel)]="model.atkname3" name="atkname3" />
+                    </td>
+                    <td>
+                      <input nbInput type="text" ngModel [(ngModel)]="model.atkbonus3" name="atkbonus3" />
+                    </td>
+                    <td>
+                      <input nbInput type="text" ngModel [(ngModel)]="model.atkdamage3" name="atkdamage3" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <textarea nbInput></textarea> 
+            </nb-card>
+          </section>
+          <section class="equipment">
+            <div>
+              <label>Equipment</label>
+              <div class="money">
+                <ul>
+                  <li>
+                    <label for="cp">cp</label><input nbInput ngModel [(ngModel)]="model.cp" name="cp" />
+                  </li>
+                  <li>
+                    <label for="sp">sp</label><input nbInput ngModel [(ngModel)]="model.sp" name="sp" />
+                  </li>
+                  <li>
+                    <label for="ep">ep</label><input nbInput ngModel [(ngModel)]="model.ep" name="ep" />
+                  </li>
+                  <li>
+                    <label for="gp">gp</label><input nbInput ngModel [(ngModel)]="model.gp" name="gp" />
+                  </li>
+                  <li>
+                    <label for="pp">pp</label><input nbInput ngModel [(ngModel)]="model.pp" name="pp" />
+                  </li>
+                </ul>
+              </div>
+              <textarea nbInput ngModel [(ngModel)]="model.equipment" name="equipment" placeholder="Equipment list here"></textarea>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section class="flavor">
+            <div class="personality">
+              <label for="personality">Personality</label><textarea nbInput ngModel [(ngModel)]="model.personality" name="personality"></textarea>
+            </div>
+            <div class="ideals">
+              <label for="ideals">Ideals</label><textarea nbInput ngModel [(ngModel)]="model.ideals" name="ideals"></textarea>
+            </div>
+            <div class="bonds">
+              <label for="bonds">Bonds</label><textarea nbInput ngModel [(ngModel)]="model.bonds" name="bonds"></textarea>
+            </div>
+            <div class="flaws">
+              <label for="flaws">Flaws</label><textarea nbInput ngModel [(ngModel)]="model.flaws"  name="flaws"></textarea>
+            </div>
+          </section>
+          <section class="features">
+            <div>
+              <label for="features">Features & Traits</label><textarea nbInput ngModel [(ngModel)]="model.features" name="features"></textarea>
+            </div>
+          </section>
+        </section>
+      </main>
+<div class="container">
+      <div class="btn-align">
+      <button nbButton status="primary" [disabled]="form.invalid">Submit</button>
+    </div>
+  </div>
+
+    </form>
+  </div>
+</div>
+</nb-card-body>
+</nb-card>

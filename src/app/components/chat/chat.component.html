@@ -1,0 +1,58 @@
+
+<nb-card class="card-style">
+  <nb-card-body>
+    <p class="iamName" *ngIf="auth.user$ | async as user;">{{user.displayName}}</p>
+
+    <div *ngIf="auth.isDungeonMaster | async as isDungeonMaster; else notDM">
+      <div *ngIf="auth.isDungeonMaster | async as isDungeonMaster " style="color:red"><img src="assets/images/caster.png" class="charimg"><p class="iam">Dungeon Master</p></div>
+    </div>
+    
+    <ng-template #notDM>
+     <div><img class="dragHead" src="assets/images/draghead.png" ></div> 
+    </ng-template>
+
+    
+    
+ 
+  </nb-card-body>
+        </nb-card>
+
+  
+        
+
+    <h6>Chat</h6>
+    <nb-card size="tiny">
+      <nb-card-body>
+        <p class="iam">Members Online</p>
+        <hr>
+    <div *ngFor="let online of online | async" class="online">
+        <div *ngIf="online.status == 'online' ">
+           <p class="logged">{{online.name}} {{online.status}}<img class="stats" style="display:inline" src ="/assets/images/ani-dice.gif"></p>
+          </div>     
+      </div>
+    </nb-card-body>
+    </nb-card>
+    <!--app-user-status [uid]="user.uid"></app-user-status-->
+    <p></p>
+  
+<input #newHero nbInput fullWidth placeHolder="Message"
+      (keyup.enter)="addHero(newHero.value)"
+      (blur)="addHero(newHero.value); newHero.value='' " [(ngModel)]="content">
+
+    <button nbButton size="tiny" status="info" (click)="addHero(newHero.value)">send <span class="addedtext" style="font-size: .9em;">(or hit enter key)</span></button>
+
+<div *ngFor="let post of posts | async" class="posts">
+
+<nb-card>
+  <nb-card-body>
+    <nb-user size="tiny"
+             name="{{ post.title }}"
+             title="{{ post.content }}"
+             showInitials=false
+             color="purple" >
+    </nb-user>
+  </nb-card-body>
+</nb-card>
+
+</div>
+

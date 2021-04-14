@@ -1,0 +1,57 @@
+<div *ngIf="user">
+<div class="card-row">
+    <div class="card-col">
+      <nb-card size="tiny">
+        <nb-card-header>Game Controls</nb-card-header>
+        <app-gamepanel></app-gamepanel>
+      </nb-card>
+      <nb-card size="medium">
+        <nb-card-header>Player Info</nb-card-header> 
+        <p>Name: {{user.displayName}}</p>
+        <p>User UID: {{user.uid}}</p>
+        <p>User Email: {{user.email}}</p>
+        <p>Subscriber: {{user.roles.subscriber}}</p>
+        <p>Admin: {{user.roles.admin}}</p>
+        <p>DungeonMaster: {{user.roles.isDungeonMaster}}</p>
+      </nb-card>
+    </div>
+    <div class="card-col">
+      <nb-card size="giant">
+        <nb-card-header>Game Board</nb-card-header>
+        <img src="assets\images\ddmap.jpg">
+      </nb-card>
+    </div>
+  </div>
+</div>
+
+<nb-card>
+
+  <div *ngIf="user">
+    <h2>{{user.displayName}}</h2>
+        <p>{{user.uid}}</p>
+   </div>
+
+  <div *ngIf="diceRolls">
+    <h4>Dice Rolls</h4>
+    <p>D2:    {{diceRolls.d2}}</p>
+    <p>D4:    {{diceRolls.d4}}</p>
+    <p>D6:    {{diceRolls.d6}}</p>
+    <p>D8:    {{diceRolls.d8}}</p>
+    <p>D10:   {{diceRolls.d10}}</p>
+    <p>D20:   {{diceRolls.d20}}</p>
+    <p>D100:  {{diceRolls.d100}}</p>
+  </div>
+
+</nb-card>
+
+<div *ngIf="rolls">
+  <h4>Dice Rolls for user ID: DeZYFNPOc5N0HR2ArVuRHUoepWF2</h4>
+  <p>D2:    {{rolls.DeZYFNPOc5N0HR2ArVuRHUoepWF2.d2}}</p>
+  <p>D4:    {{rolls.DeZYFNPOc5N0HR2ArVuRHUoepWF2.d4}}</p>
+  <p>D6:    {{rolls.DeZYFNPOc5N0HR2ArVuRHUoepWF2.d6}}</p>
+  <p>D8:    {{rolls.DeZYFNPOc5N0HR2ArVuRHUoepWF2.d8}}</p>
+  <p>D10:   {{rolls.DeZYFNPOc5N0HR2ArVuRHUoepWF2.d10}}</p>
+  <p>D20:   {{rolls.DeZYFNPOc5N0HR2ArVuRHUoepWF2.d20}}</p>
+  <p>D100:  {{rolls.DeZYFNPOc5N0HR2ArVuRHUoepWF2.d100}}</p>
+</div>
+

@@ -1,0 +1,39 @@
+  img.forest {
+    height: auto;
+    max-height: 500px;
+    width:auto;
+    position: relative;
+    background:cover;
+    top: 0;
+   
+    width: 100%;
+    filter: drop-shadow(10px 5px 2px black);
+  }
+  
+  .nb-shuffle { 
+    cursor: pointer; 
+  }
+  
+  .fas {
+    margin: 10px;
+    filter: drop-shadow(10px 5px 2px black);
+  }
+
+
+  p{
+    padding-left: 20px;
+  }
+
+  img.flying-creature {
+    position: absolute;
+    width: 20%;
+    bottom: 80px;
+    left: 16px;
+    filter: drop-shadow(10px 5px 2px black)
+  }
+
+  .flipme{
+    cursor: pointer;
+    height:800px;
+  }
+ 

@@ -1,0 +1,26 @@
+<div *ngIf="selectedOption">
+    <h3>{{selectedOption}}</h3>
+  </div>
+<nb-card>
+  <nb-card-body>
+    <div *ngFor="let playerSheet of playerSheet">
+      <nb-radio-group [(ngModel)]="selectedOption">
+        <nb-radio [value]="playerSheet.charname">{{playerSheet.charname}}</nb-radio>
+      </nb-radio-group>
+      </div>
+  </nb-card-body>
+</nb-card>
+<div class="btn-align">
+  <button nbButton status="basic" (click)=toggle()>Submit</button>
+</div>
+
+<script>
+  app.controller('ControllerName', 
+               ['$scope', '$route', function($scope, $route) { 
+    $scope.reloadRoute = function() { 
+  
+        // Reload only the route which will re-instantiate 
+        $route.reload(); 
+    }; 
+}]); 
+</script>

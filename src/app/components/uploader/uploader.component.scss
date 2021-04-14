@@ -1,0 +1,38 @@
+.dropzone { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    min-width: 80vw;
+    font-weight: 200;
+    height: 300px;
+    border: 4px solid skyblue;
+    border-radius: 5px;
+    background: solid black;
+    margin: 10px 0;
+  
+    &.hovering {
+        border: 2px solid #f16624;
+        color: #dadada !important;
+    }
+  
+    .file-label {
+        font-size: 1.2em;
+    }
+  }
+  
+  progress::-webkit-progress-value {
+    transition: width 0.1s ease;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter:drop-shadow(16px 16px 10px black);
+  }
+
+  button {
+    filter:drop-shadow(16px 16px 10px black);
+    margin: 5px;
+  }

@@ -1,0 +1,19 @@
+<section>
+  
+        <div *ngIf="myRoll != 0">
+           <img class="smallDragon" src="../../../assets/images/draghead.png"> 
+           <h1>You rolled: {{myRoll}}</h1>
+        </div>
+    <div>
+    <button nbButton outline status="primary" (click)="D2Roll(myRoll)">D2</button>
+    <button nbButton outline status="primary" (click)="D4Roll(myRoll)">D4</button>
+    <button nbButton outline status="primary" (click)="D6Roll(myRoll)">D6</button>
+    <button nbButton outline status="primary" (click)="D8Roll(myRoll)">D8</button>
+    <button nbButton outline status="primary" (click)="D10Roll(myRoll)">D10</button>
+    <button nbButton outline status="primary" (click)="D20Roll(myRoll)">D20</button>
+    <button nbButton outline status="primary" (click)="D100Roll(myRoll)">D100</button>
+    <button nbButton outline status="primary" (click)="reset(myRoll)">Reset</button>
+    </div>
+  </section>
+
+ 

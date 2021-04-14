@@ -1,0 +1,35 @@
+<h1>Join a group</h1>
+
+
+<nb-card>
+    <nb-card-body>
+        <div *ngFor="let groupsession of groupsession | async">
+
+            <nb-checkbox (change)="toggle2($event,groupsession.partyLeader)" name="{{groupsession.partyLeader}}" [ng-checked]="groupsession.partyLeader" status="primary"><p class="logged" style="display:inline">Name: {{groupsession.partyLeader}} Group Name: {{groupsession.gamesessionID}} </p></nb-checkbox>
+
+            
+     </div>
+    </nb-card-body>
+</nb-card>
+
+
+
+
+
+<nb-card>
+    <nb-card-body>
+        <div *ngFor="let groupsession of groupsession | async">
+            <p>Game Members: {{groupsession.selectedMembers}}</p>
+        </div>
+    </nb-card-body>
+
+</nb-card>
+
+<nb-card>
+    <nb-card-body>
+        <div *ngFor="let groupsession of groupsession | async">
+            <p>Selected Characters: {{groupsession.selectedCharacters}}</p>
+        </div>
+    </nb-card-body>
+
+</nb-card>

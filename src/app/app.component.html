@@ -1,0 +1,63 @@
+<nb-layout>
+  <nb-layout-header fixed>
+
+    <ul>
+     <li><button nbButton status="success" size="tiny" (click)="toggle()">Toggle left menu</button></li> 
+     <li><button nbButton status="info" size="tiny" (click)="toggleCompact()">Toggle chat panel</button></li>
+    </ul>
+    
+    <img class="ddlogo" src="/assets/images/ddlogo.png" class="ddlogo">
+
+    <div class="login">
+      <span *ngIf="auth.user$ | async; then logout else login"></span>
+    </div>
+
+  </nb-layout-header>
+<!--end of top section-->
+  <nb-sidebar tag="left">
+    
+      <nb-menu [items]="items" autoCollapse="true">
+      </nb-menu>
+    
+  </nb-sidebar>
+<!--End of left Menu-->
+  <nb-sidebar right tag="right" class="chatpanel">
+    
+    <div *ngIf="auth.user$ | async as user;">
+    <app-chat></app-chat>
+   </div>
+
+
+  </nb-sidebar>
+<!--End or right Menu-->
+
+  <nb-layout-column class="colored-column-warning">
+
+
+<router-outlet></router-outlet>
+
+
+  </nb-layout-column>
+
+  
+<!--End main Body Section-->
+  <nb-layout-footer fixed>
+    <p>Copyright:<i class="fas fa-copyright"></i>Just some educational learning</p>
+  </nb-layout-footer>
+<!--End Layout Container-->
+</nb-layout>
+
+
+<ng-template #logout>
+  <a class="nav-item nav-link" id="nav-login-link" (click)="auth.signOut()" *ngIf="auth.user$ | async as user;">
+    <i class="fas fa-unlock"></i><p class="saysme" style="display: inline;">Logout</p>
+  </a>
+</ng-template>
+
+<ng-template #login>
+  <a class="nav-item nav-link" id="nav-login-link" (click)="auth.googleLogin()">
+    <i class="fas fa-lock"></i><p class="saysme" style="display: inline;">Login</p>
+  </a>
+</ng-template>
+
+

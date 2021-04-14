@@ -1,0 +1,84 @@
+<div *ngIf="charname"></div>
+
+  
+    <!--Yes I should use radio buttons here, that is what they are designed for.. and I could just style the css to have boxes if the look is what I wanted..NbRadio is a component but I could not get it working-->
+   <nb-card>
+     <nb-card-body>
+
+        
+        <div class="col-container">
+          <div class="col-1">
+          
+
+       
+
+       <h1>Party Leader</h1>
+       <div *ngFor="let game of game">
+       <p> {{game.selectedCharacters}}</p> 
+      </div>
+
+         
+            
+            <h1>Game Members</h1>
+            <div *ngFor="let game of game">
+              <ul *ngFor="let doc of game.selectedMembers">
+                <div *ngIf="doc === 'tester.displayName' "></div>
+
+                </ul>
+               
+                <div *ngFor="let tester of tester">
+                  <p>{{tester.displayName}}</p> 
+                </div>
+      <hr>
+              <h1>Selected Character</h1>
+              <h4>{{game.selectedCharacters}}</h4>
+      
+              
+             
+      
+            </div>
+          </div>
+        
+
+ <h1 style="text-align: center;">Game Map</h1>
+ 
+        <div *ngFor="let game of game">
+          <nb-card>
+            <nb-card-body>
+              <img [src]="game.downloadUrl" class="game-maps" >
+          </nb-card-body>
+            </nb-card>
+            </div>
+
+
+            <div class="col-container">
+            <div class="col-die">
+              <h1 style="text-align: left;">Player Rolls</h1>
+              <div *ngIf="diceRolls">
+                <p>D2:{{diceRolls.d2}}  D4:{{diceRolls.d4}} D6:{{diceRolls.d6}} D8:{{diceRolls.d8}} D10:{{diceRolls.d10}} D20:{{diceRolls.d20}} D100:  {{diceRolls.d100}}</p>
+               </div>
+           
+
+           
+          </div>
+
+          <div class="col-2">
+            <div style="text-align: center;">
+            <app-gamepanel></app-gamepanel>
+          </div>
+          </div>
+
+
+
+
+
+        </div>
+           
+        
+        </div>
+
+</nb-card-body>
+</nb-card>
+
+
+ 

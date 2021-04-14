@@ -1,0 +1,127 @@
+<h1>Registration</h1>
+<form register #register="ngForm" (ngSubmit)="onSubmit(register.value); register.reset()">
+
+<div class ="form-group">
+
+  <nb-card>
+    <nb-card-body>
+  <nb-checkbox (checkedChange)="toggle($event)" [(ngModel)]="model.Mr" name = "Mr" status="primary">Mr.</nb-checkbox> 
+
+  <nb-checkbox (checkedChange)="toggle1($event)" [(ngModel)]="model.Ms" name = "Ms" status="primary">Ms.</nb-checkbox>
+  
+  <nb-checkbox (checkedChange)="toggle2($event)" [(ngModel)]="model.none" name = "none" status="primary">None</nb-checkbox>
+  </nb-card-body>
+  </nb-card>
+
+<nb-card>
+  <nb-card-body>
+  <input class="form-control" type="text" nbInput fullWidth placeholder="First Name" #firstName="ngModel" [(ngModel)]="model.firstName" name="firstName" required minlength="3">
+
+  <div [hidden]="firstName.valid || firstName.untouched"
+        class="alert alert-danger">
+         First Name is required
+      </div>
+
+  <input type="text" nbInput fullWidth placeholder="Last Name" #lastName="ngModel" [(ngModel)]="model.lastName" name="lastName" required minlength="3">
+
+  <div [hidden]="lastName.valid || lastName.untouched"
+  class="alert alert-danger">
+       Last Name is required
+</div>
+
+</nb-card-body>
+</nb-card>
+
+  <nb-card>
+    <nb-card-body>
+      <input type="text" nbInput fullWidth placeholder="Address Line 1" #Address1=ngModel [(ngModel)]="model.addressLn1" required name="Address1">
+      <div [hidden]="Address1.valid || Address1.untouched"
+       class="alert alert-danger">
+       Address must be entered
+      </div>
+      <input type="text" nbInput fullWidth placeholder="Address Line 2" [(ngModel)]="model.addressLn2" required name="Address2">
+          
+      <input type="text" nbInput placeholder="City" #city=ngModel [(ngModel)]="model.city" required name="city">
+      
+      <input type="text" nbInput placeholder="State" #state=ngModel [(ngModel)]="model.state" required name="state">
+     
+      <input type="text" nbInput placeholder="Zip/Postal Code" #zipCode=ngModel [(ngModel)]="model.zip" required name="zipCode">
+     
+      <input type="text" nbInput placeholder="Country" #country=ngModel [(ngModel)]="model.country" required name="country">
+      <div [hidden]="country.valid || country.untouched"
+      class="alert alert-danger">
+      Country must be entered
+      </div>
+
+      <div [hidden]="city.valid || city.untouched"
+      class="alert alert-danger">
+      City must be entered
+      </div>
+
+      <div [hidden]="state.valid || state.untouched"
+      class="alert alert-danger">
+      State must be entered
+      </div>
+
+      <div [hidden]="zipCode.valid || zipCode.untouched"
+      class="alert alert-danger">
+      ZipCode must be entered
+      </div>
+      
+
+
+    </nb-card-body>
+  </nb-card>
+
+
+</div>
+
+
+<nb-card>
+  <nb-card-body>
+    <input type="text" nbInput placeholder="Email@email.com" #email=ngModel [(ngModel)]="model.email" required name="email">
+  
+    <input type="text" nbInput placeholder="Primary Telephone" #primaryPhone=ngModel [(ngModel)]="model.primaryPhone" required name="primaryPhone">
+    <div [hidden]="primaryPhone.valid || primaryPhone.untouched"
+    class="alert alert-danger">
+    Primary Phone must be entered
+    </div>
+
+    <div [hidden]="email.valid || email.untouched"
+    class="alert alert-danger">
+    Email must be entered
+    </div>
+
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-body>
+    <p>Please enter a unique name: (This name will be displayed to other members so they can identify you.) </p>
+    <input type="text" nbInput placeholder="memberName" #memberName=ngModel [(ngModel)]="model.memberName" required name="memberName">
+    <div [hidden]="memberName.valid || memberName.untouched"
+    class="alert alert-danger">
+     unique name is required!
+    </div>
+  </nb-card-body>
+</nb-card>
+
+
+<nb-card>
+  <nb-card-body>
+    <p>If you would like this account to be granted the powers of Dungeon Master check the box below.</p>
+    <nb-checkbox (checkedChange)="toggle3($event)" [(ngModel)]="model.dungeonMaster" name = "dungeonMaster" status="primary">Dungeon Master   <p style="display:inline" *ngIf="checked3"> - The universe now bows to your will.</p> </nb-checkbox> 
+  
+  </nb-card-body>
+</nb-card>
+
+
+<nb-card>
+  <nb-card-body>
+    <button nbButton (click)="showToast()">Submit</button>
+</nb-card-body>
+</nb-card>
+
+
+</form>
+

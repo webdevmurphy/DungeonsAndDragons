@@ -1,0 +1,15 @@
+nb-checkbox:not(:only-child) {
+    margin-right: 1.5rem;
+  }
+
+  fieldset {
+    border: 0 none;
+  }
+
+  nb-card{
+    padding: 5px;
+  }
+
+  .ng-invalid:not(form).ng-touched{
+    border: 1px solid red;
+  }

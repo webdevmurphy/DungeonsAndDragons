@@ -1,0 +1,28 @@
+.mything {
+    overflow-y: visible;
+    height: auto;
+}
+
+h3 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-weight:700;
+    filter: drop-shadow( 5px 5px 8px black);
+}
+
+nb-card {
+    filter: drop-shadow( 5px 5px 8px black);
+}
+
+p {
+    filter: drop-shadow( 5px 5px 8px black);
+}
+
+h3{
+    display: inline;
+}
+
+.section {
+    position: absolute;
+  right: 0px;
+  padding: 10px;
+}

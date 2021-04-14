@@ -1,0 +1,33 @@
+<nb-card accent="info">
+    <nb-card-header>You searched for:</nb-card-header>
+    <nb-card-body>
+      <h3>{{ value || '-' }}</h3>
+    </nb-card-body>
+  </nb-card>
+  <div *ngIf="!!data; else spinner">
+  <div *ngFor="let data of data">
+    <nb-card accent="info">
+       
+<nb-card-header><h3>{{data.name}}</h3></nb-card-header>
+
+      <p>{{data.desc}}</p>
+      <p>{{data.text}}</p>
+      <p> {{data.skill_proficiencies}}</p> 
+      <p> {{data.tool_proficiencies}}</p> 
+      <p> {{data.languages}}</p> 
+      <p> {{data.equipment}}</p> 
+      <p> {{data.feature}}</p> 
+      <p> {{data.feature_desc}}</p>
+      <p> {{data.suggested_characteristics}}</p>
+    </nb-card>
+</div>
+<body onLoad="MyReload()"></body>
+
+</div>
+<ng-template #spinner>
+  <nb-card size="giant">
+      <app-spinner></app-spinner>
+  </nb-card>
+</ng-template>
+
+

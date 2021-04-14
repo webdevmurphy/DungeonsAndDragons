@@ -1,0 +1,120 @@
+<h1>Create Dungeon Party</h1>
+
+
+
+
+
+<form gamesession #gamesession="ngForm" (ngSubmit)="onSubmit(gamesession.value); gamesession.reset()">
+
+
+  <nb-card>
+    <nb-card-body>
+      <h6>Will you be the Dungeon Master for your Party?.</h6>
+      <nb-checkbox (checkedChange)="toggle3($event)" [(ngModel)]="model.isDungeonMaster" name = "isDungeonMaster" status="primary">Dungeon Master   <p style="display:inline" *ngIf="checked3"> - The universe now bows to your will.</p> </nb-checkbox> 
+    
+    </nb-card-body>
+  </nb-card>
+
+
+  <h6>Select Game Map</h6>
+ 
+
+  <nb-layout-header subheader><div *ngIf="downloadUrl">
+    <p>File Selected {{downloadUrl}}</p>
+  </div>
+</nb-layout-header>
+  <nb-card class="scrollable" ><nb-card-body>
+    <div *ngFor="let image of images">
+      <nb-radio-group  [(ngModel)]="downloadUrl" name="downloadUrl">
+        <nb-radio [value]="image.downloadUrl" ><img [src]="image.downloadUrl" class="game-maps" [alt]="image.alt"></nb-radio>
+      </nb-radio-group>
+      </div>
+ 
+    </nb-card-body> </nb-card>
+  
+
+
+
+
+
+
+
+
+
+
+    
+  
+<nb-card>
+  <nb-card-body>
+    <h6>Dungeon Name</h6>
+    <input class="form-control" type="text" nbInput fullWidth placeholder="Party Name" #gamesessionID="ngModel" [(ngModel)]="model.gamesessionID" name="gamesessionID" required minlength="3">
+  
+    <div [hidden]="gamesessionID.valid || gamesessionID.untouched"
+          class="alert alert-danger">
+           If no selction made, party is required.
+        </div>
+  </nb-card-body>
+</nb-card>
+
+
+  <nb-card>
+    <nb-card-body class="example-items-rows">
+      <h6>Select Party Members!</h6>
+      <div *ngFor="let online of online | async" class="online">
+        <div *ngIf="online.status == 'online'">
+          <nb-checkbox (change)="toggle($event,online.uid)" name="{{online.uid}}" [ng-checked]="online.uid" status="primary"><p class="logged" style="display:inline">Name: {{online.name}} UserUID: {{online.uid}}</p></nb-checkbox>
+          </div>     
+      </div>
+
+       <!-- basic structure to bind to For template ref var
+      <div *ngFor="let online of online | async" class="online">
+        <div *ngIf="online.status == 'online'">
+
+        <input type="checkbox" name="{{online.uid}}" [value]="online.uid" (change)="toggle($event,online.uid)">
+
+        </div>
+      </div>
+        --> 
+
+    </nb-card-body>
+  </nb-card>
+
+
+
+
+
+
+  
+
+  <nb-card>
+    <nb-card-body>
+      <h6>Select Character</h6>
+      <div *ngFor="let playerSheet of playerSheet | async">
+        <nb-checkbox (change)="toggle2($event,playerSheet.charname)" name="{{playerSheet.charname}}" [ng-checked]="playerSheet.charname" status="primary"><p class="logged" style="display:inline">Name: {{playerSheet.charname}} </p></nb-checkbox>
+     
+        
+      </div>
+
+
+    </nb-card-body>
+
+  </nb-card>
+
+
+
+
+<nb-card>
+  <nb-card-body>
+    <button nbButton>Submit</button>
+  </nb-card-body>
+
+</nb-card>
+
+
+    
+
+
+
+
+
+</form>

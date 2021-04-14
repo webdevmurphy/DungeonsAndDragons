@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@500&family=Piazzolla:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bentham&family=Cinzel+Decorative&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+ p {
+    padding-left: 15px;
+    text-indent: -15px;
+   
+  }
+
+h1 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 19px;
+    white-space: nowrap;
+    margin: auto;
+    letter-spacing: 2px;
+    filter: drop-shadow( 5px 5px 8px black);
+
+}
+.game-maps {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    width: auto;
+    filter: drop-shadow( 5px 5px 8px black);
+}
+h4 {
+ 
+  font-size: 14px;
+  white-space: nowrap;
+  margin: auto;
+  letter-spacing: 2px;
+  filter: drop-shadow( 5px 5px 8px black);
+  padding-bottom: 22%;
+}
+.col-container {
+  display: table;
+  width: 100%;
+}
+.col {
+  display: table-cell;
+  padding: 16px;
+}
+
+.col-1 {
+  display: table-cell;
+  padding: 16px;
+  width: 25%;
+}
+.col-2 {
+  display: table-cell;
+  padding: 16px;
+  width:25%;
+}
+.col-die{
+  display:table-cell;
+  padding: 16px;
+  width: 25%;
+}

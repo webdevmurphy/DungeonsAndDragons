@@ -1,0 +1,23 @@
+
+<div class="card-row">
+    <div class="card-col">
+      <nb-card size="tiny">
+        <nb-card-header>Profile Image</nb-card-header>
+        <img src="assets\images\psycloud.gif">
+      </nb-card>
+      <nb-card size="medium">
+        <nb-card-header>Profile Details</nb-card-header>
+       
+        <p>Name: {{user.displayName}}</p>
+        <p>User UID: {{user.uid}}</p>
+        <p>User Email: {{user.email}}</p>
+        <p>Subscriber: {{user.roles.subscriber}}</p>
+      </nb-card>
+    </div>
+    <div class="card-col">
+      <nb-card size="giant">
+        <nb-card-header>Character Sheets</nb-card-header>
+        <p>Titles from DB: maybe?</p>
+      </nb-card>
+    </div>
+  </div>

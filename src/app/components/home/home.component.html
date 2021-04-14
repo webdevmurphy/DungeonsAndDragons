@@ -1,0 +1,39 @@
+<div class="flipme">
+<nb-flip-card [showToggleButton]="false" [flipped]="flipped">
+    <nb-card-front (click)="toggleView()"> <nb-card size="large"> 
+
+     <app-carousel [images]="images"></app-carousel>
+
+
+     </nb-card>
+      </nb-card-front>
+       <nb-card-back (click)="toggleView()">
+         <nb-card size="large">
+
+         <p>Capstone project for me and my team at UWF, its been a long journey. There is still so much further to travel, thanks for looking.
+         </p>
+
+         <img class="forest" src="/assets/images/enchantedForest.jpg" />
+
+         <img class="flying-creature" src="/assets/images/tenor.gif" />
+
+        
+         
+      </nb-card>
+    </nb-card-back>
+ </nb-flip-card>
+</div>
+
+
+ <nb-card>
+  <nb-card-body>
+    <h1>This website is for learning only.</h1>
+
+    <p>Things might not work, if they do work they may change. Most of the components don't work yet, but they will over time.
+      Come back often, and you will see changes almost daily. Hope you enjoy the site, its best viewed at 1920x1080 for the moment. 
+      I-pads, tables, smartphones, and other resolutions may not display correctly. Media tags will be added and those devices will 
+      be supported as things move forward. Our hope is this will be functional at the end, and a user like you can play a remote game of D&D 
+      with the provided tools. 
+    </p>
+  </nb-card-body>
+</nb-card>

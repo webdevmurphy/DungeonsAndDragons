@@ -1,0 +1,33 @@
+
+<app-search-page></app-search-page>
+
+    
+
+    <div *ngIf="!!data; else spinner">
+
+
+        <div class="mything">
+            <div *ngFor="let data of data">
+                <nb-card accent="info">     
+            <nb-card-header><h3>{{data.name}}</h3></nb-card-header>
+                    <nb-card-body>
+                      <p> {{data.desc}}</p> 
+                      <div *ngFor="let data of data.archetypes">
+                        <p>{{data.name}}</p>
+                        <p>{{data.desc}}</p>
+                        </div>
+                    </nb-card-body>
+            
+                    <nb-card-footer><a href="https://open5e.com/"><p>api data provided by open5e</p></a></nb-card-footer>
+                </nb-card>
+            </div>
+            </div>
+
+
+    </div>
+
+    <ng-template #spinner>
+        <nb-card size="giant">
+      <app-spinner></app-spinner>
+  </nb-card>
+    </ng-template>

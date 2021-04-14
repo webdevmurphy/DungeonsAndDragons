@@ -1,0 +1,8 @@
+<p>view-files works!</p>
+<ng-container *ngFor="let image of images; let isActive = first;">
+
+    <img [src]="image.downloadUrl" class="d-block" [alt]="image.alt">
+
+
+
+</ng-container>

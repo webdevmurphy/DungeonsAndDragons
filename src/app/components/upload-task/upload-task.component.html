@@ -1,0 +1,25 @@
+
+<div class="uploader">
+   
+       
+    
+    <div class="bytes" *ngIf="snapshot | async as snap">
+        
+        <nb-card accent="primary">
+            <nb-card-header>
+                <div *ngIf="percentage | async as pct">
+                <nb-progress-bar [value]="pct" max="100" status="primary"> Progress: {{ pct | number }}%</nb-progress-bar>
+            </div>
+            </nb-card-header>
+            <nb-card-body>
+                <img [src]="downloadUrl" ><br>
+                
+            </nb-card-body>
+            <nb-card-footer> <h5><p [href]="downloadUrl" target="_blank" rel="noopener">Download Url!</p></h5></nb-card-footer>
+          </nb-card>
+
+        
+     
+    
+ 
+    </div>

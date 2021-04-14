@@ -1,0 +1,80 @@
+:host nb-layout-header button:last-child {
+    float:auto;
+  }
+
+  img.ddlogo {
+    height: 50px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+    filter: drop-shadow(10px 5px 2px black);
+    
+  }
+ 
+  .login {
+    top: 20px; /* your required value */
+    right: 0;
+    width: 150px;
+    height: 100%;
+    position: fixed;
+    margin-left: auto;
+  }
+
+  img.dragon {
+    height:230px;
+    position:fixed;
+    padding-left: 30px;
+    bottom:0px;
+    filter: drop-shadow(10px 5px 2px black);
+  }
+
+
+  .saysme{
+    cursor:pointer;
+    filter: drop-shadow(4px 4px 5px black);
+  }
+  .fas {
+   
+    padding: 10px;
+    filter: drop-shadow(4px 4px 5px black);
+    
+    cursor:pointer;
+  }
+  .fab {
+    margin-right:5px;
+    filter: drop-shadow(2px 2px 2px black);
+  }
+
+.far {
+  margin-right:5px;
+  filter: drop-shadow(4px 4px 5px black);
+}
+
+button{
+  filter: drop-shadow(5px 5px 2px black);
+}
+
+nb-search {
+  filter: drop-shadow(5px 5px 2px black);
+}
+
+
+@media (max-width: 1700px) {
+  img.dragon {
+   display:none;
+    
+  }
+}
+@media (max-width: 768px) {
+  img.dragon {
+   display:none;
+    
+  }
+  img.ddlogo {
+   display:none;
+    
+  }
+.chatpanel{
+  width: min-content;
+}
+}

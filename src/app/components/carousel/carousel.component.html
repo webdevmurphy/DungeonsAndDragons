@@ -1,0 +1,20 @@
+
+<div class="carousel-container">
+    <div class="row">
+        <div class="col">
+
+<div id="carousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <ng-container *ngFor="let image of images; let isActive = first;">
+            <div class='carousel-item' [class.active]='isActive' data-interval="10000">
+                <img [src]="image.downloadUrl" class="d-block" [alt]="image.alt">
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+
+
+</div> <!-- end col -->
+</div> <!-- end row -->
+</div> <!-- close container -->
