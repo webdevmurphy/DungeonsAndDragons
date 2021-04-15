@@ -9,7 +9,7 @@ This is the project report going over the end state of our project.
 https://github.com/MichaelMurphy2/DungeonDragon/blob/master/Party%20Dungeon%20User%20Manual%20v1.0.pdf
 
 ## Live Server
-https://nebularproj2.web.app/home
+https://murphy-hub.web.app/home
 
 ## Development server
 
